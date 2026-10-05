@@ -1,0 +1,19 @@
+[project]
+name = "tennessee-golf-course-analysis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Jason Norman", email = "json.norman@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "httpx>=0.28.1",
+]
+
+[project.scripts]
+tennessee-golf-course-analysis = "tennessee_golf_course_analysis:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"

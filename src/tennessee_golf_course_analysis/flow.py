@@ -46,12 +46,21 @@ def test_dbt():
     )
 
 
+@task(name="Publish Gold Data")
+def publish_gold():
+    run_command(
+        ["uv", "run", "python", "-m", "tennessee_golf_course_analysis.publish"],
+        PROJECT_ROOT,
+    )
+
+
 @flow(name="Tennessee Golf Course Pipeline", log_prints=True)
 def golf_course_pipeline():
     extract_data()
     load_bronze()
     run_dbt()
     test_dbt()
+    publish_gold()
 
 
 from prefect.schedules import Cron

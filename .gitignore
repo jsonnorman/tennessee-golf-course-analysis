@@ -2,3 +2,10 @@
 __pycache__/
 *.pyc
 data/
+# dbt generated files
+logs/
+target/
+dbt_packages/
+# Local DuckDB databases
+*.duckdb
+*.duckdb.wal

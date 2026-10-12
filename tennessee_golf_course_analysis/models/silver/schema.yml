@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: silver_courses
+    description: "Tennessee golf courses loaded from OpenGolfAPI."
+    columns:
+      - name: id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: course_name
+        data_tests:
+          - not_null
+
+  - name: silver_tees
+    description: "Tee box data for deduplicated Tennessee golf courses."
+    columns:
+      - name: course_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('silver_courses')
+                field: id

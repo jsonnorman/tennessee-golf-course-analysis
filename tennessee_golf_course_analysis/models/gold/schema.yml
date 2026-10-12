@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: gold_course_difficulty
+    description: "Valid tee-level course difficulty data."
+    columns:
+      - name: course_id
+        data_tests:
+          - not_null
+
+      - name: course_rating
+        data_tests:
+          - not_null
+
+      - name: slope
+        data_tests:
+          - not_null
+
+  - name: gold_course_rankings
+    description: "Highest-rated tee per course and gender, ranked separately."
+    columns:
+      - name: course_id
+        data_tests:
+          - not_null
+
+      - name: difficulty_rank
+        data_tests:
+          - not_null
